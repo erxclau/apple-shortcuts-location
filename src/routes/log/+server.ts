@@ -18,8 +18,8 @@ export const POST: RequestHandler = async ({ request, platform }) => {
 		return error(400, { message: prettifyError(location.error) });
 	}
 
-	for (const [key, value] of Object.entries(location.data)) {
-		platform?.env.APPLE_SHORTCUTS_LOCATION.put(key, value);
+	for await (const [key, value] of Object.entries(location.data)) {
+		await platform?.env.APPLE_SHORTCUTS_LOCATION.put(key, value);
 	}
 
 	return json({
