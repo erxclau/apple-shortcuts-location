@@ -1,12 +1,12 @@
 import { error, json, type RequestHandler } from '@sveltejs/kit';
-import { SECRET_KEY } from '$env/static/private';
+import { env } from '$env/dynamic/private';
 
 import { Location } from '$lib';
 import { prettifyError } from 'zod';
 
 export const POST: RequestHandler = async ({ request, platform }) => {
 	const secretKeyHeader = request.headers.get('X-SECRET-KEY');
-	if (secretKeyHeader !== SECRET_KEY) {
+	if (secretKeyHeader !== env.SECRET_KEY) {
 		error(401, { message: 'Request is unauthorized.' });
 	}
 
