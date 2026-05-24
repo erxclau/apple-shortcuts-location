@@ -8,7 +8,7 @@
 		<h1>Where am <a href="https://erxclau.me">I</a>?</h1>
 	</hgroup>
 	{#if data.location === null}
-		<p>No location found.</p>
+		<p style="font-size: 1.5rem">No location found.</p>
 	{:else}
 		<section style="display: grid; gap: 0.5rem;">
 			<div style="font-size: 1.75rem;">
@@ -42,7 +42,7 @@
 		box-sizing: border-box;
 
 		display: grid;
-		place-content: center center;
+		place-content: center start;
 		gap: 1rem;
 	}
 
